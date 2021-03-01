@@ -3,43 +3,22 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy import integrate
-import random as rd
 
 def function(x): return -2*x**6-x**5+x**4-2*x**3+2*x+1
 
 def integra_mc(fun, a, b, num_puntos):
 
-    # inicializando las variables
-    count = 0
     in_area = 0.0
-    x_coord = []
-    y_fun = []
-    y_coord = []
-
-    # generando la cantidad de ‘num_puntos’ puntos aleatorios en el eje x en el
-    # rango de a y b, con y cálculo del valor máximo de la función con los
-    # puntos ya calculados
-    for i in range(num_puntos):
-        x = rd.uniform(a, b)
-        x_coord.append(x)
-        y_fun.append(function(x))
-    maxy = max(y_fun)
-
-    # generando la cantidad de ‘num_puntos’ puntos aleatorios en el eje y en el
-    # rango de ‘0’ y el máximo valor de la función también procedemos a contar
-    # cuántos de estos puntos caen por debajo de la de la función
-
-    while count < num_puntos:
-        y_coord.append(rd.uniform(0, maxy))
-        if y_coord[count] < y_fun[count]:
-            in_area += 1
-        count += 1
-
-    # cálculo del valor de la integral
+    x_coord = np.random.uniform(a, b, num_puntos)
+    y_fun = function(x_coord)
+    maxy = np.amax(y_fun)
+    y_coord = np.random.uniform(0, maxy, num_puntos)
+    mask = (y_coord < y_fun)
+    in_area = len(y_coord[mask])
     area_box = (b-a)*maxy
-    I_monte = in_area*area_box/count
+    I_monte = in_area*area_box/num_puntos
 
-    plt.style.use('seaborn-whitegrid')
+		plt.style.use('seaborn-whitegrid')
     plt.figure(figsize=(10, 10))
     plt.title(" $f(x)=-2x^6-x^5+x^4-2x^3+2x+1$ ", fontsize=14)
     plt.xlabel('coordenada x', fontsize=14)
@@ -53,6 +32,7 @@ def integra_mc(fun, a, b, num_puntos):
 
 
 def compara_error():
+
     sizes = np.linspace(100, 100000, 20)
     error = []
     linea = []
@@ -62,7 +42,7 @@ def compara_error():
         linea += [0]
     plt.style.use('seaborn-whitegrid')
     plt.figure(figsize=(10, 10))
-    plt.title("Uso de bucles", fontsize=14)
+    plt.title("Librería numpy", fontsize=14)
     plt.xlabel('Número de puntos aleatorios', fontsize=14)
     plt.ylabel('Valor del error', fontsize=14)
     plt.plot(sizes, error, 'x', c='blue', linewidth=0.5, label='error')

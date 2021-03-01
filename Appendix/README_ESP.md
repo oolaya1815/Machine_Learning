@@ -90,3 +90,10 @@ def compara_error():
 ![fig2](https://github.com/oolaya1815/Machine_Learning/blob/main/Appendix/images/fig2.JPG)
 
 Se aprecia que a un mayor número de puntos aleatorios el error se hace pequeño, existe un punto que pareciera que el valor en el eje x es cero, pero en realidad es de 100 número de muestras, comparado con la escala da  esa impresión.
+
+## 2. Uso de la librería Numpy
+
+Archivo monte\_numpy.py
+
+```python
+
