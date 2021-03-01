@@ -64,3 +64,29 @@ plt.legend(loc='upper left', prop={'size': 14}, frameon=True)
 plt.show()
 ```
 ![fig1](https://github.com/oolaya1815/Machine_Learning/blob/main/Appendix/images/fig1.JPG)
+
+Usando la función scipy.integrate.quad de Python, verificaremos si realmente la función implementada da un valor cercano a la integral, también se graficara el error para distinto números de puntos aleatorios usando el siguiente código.
+
+```python
+def compara_error():
+	sizes = np.linspace(100, 100000, 20)
+	error = []
+	linea = []
+	I = integrate.quad(function, 0, 0.9)
+	for size in sizes:
+		error += [integra_mc(function, 0, 0.9, int(size)) - I[0]]
+		linea += [0]
+	plt.style.use('seaborn-whitegrid')
+	plt.figure(figsize=(10, 10))
+	plt.title("Uso de bucles", fontsize=14)
+	plt.xlabel('Número de puntos aleatorios', fontsize=14)
+	plt.ylabel('Valor del error', fontsize=14)
+	plt.plot(sizes, error, 'x', c='blue', linewidth=0.5, label='error')
+	plt.plot(sizes, linea, c='red')
+	plt.legend(loc='upper right', prop={'size': 20}, frameon=True)
+	plt.show()
+```
+
+![fig2](https://github.com/oolaya1815/Machine_Learning/blob/main/Appendix/images/fig2.JPG)
+
+Se aprecia que a un mayor número de puntos aleatorios el error se hace pequeño, existe un punto que pareciera que el valor en el eje x es cero, pero en realidad es de 100 número de muestras, comparado con la escala da  esa impresión.
