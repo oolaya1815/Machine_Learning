@@ -17,5 +17,6 @@ def carga_csv(file_name):
     # suponemos que siempre trabajamos con datos en formato
     # float
     return valores.astype(float)
+```
 
 h<sub>&theta;</sub>(x) = &theta;<sub>o</sub> x + &theta;<sub>1</sub>x
