@@ -55,12 +55,12 @@ Generamos un gráfico de la función y los puntos aleatorios, para realizarlo se h
 
 ```python
 plt.figure(figsize=(10, 10))
-    plt.title(" $f(x)=-2x^6-x^5+x^4-2x^3+2x+1$ ", fontsize=14)
-		    plt.xlabel('Coordena x', fontsize=14)
-				    plt.ylabel('Coordena y', fontsize=14)
-						    plt.plot(x_coord, y_fun, '.', c='red', linewidth=0.5, label='función')
-								    plt.plot(x_coord, y_coord, 'x', c='blue', linewidth=0.5, label='aleatorios')
-										    plt.legend(loc='upper left', prop={'size': 14}, frameon=True)
-												    plt.show()
+plt.title(" $f(x)=-2x^6-x^5+x^4-2x^3+2x+1$ ", fontsize=14)
+plt.xlabel('Coordena x', fontsize=14)
+plt.ylabel('Coordena y', fontsize=14)
+plt.plot(x_coord, y_fun, '.', c='red', linewidth=0.5, label='función')
+plt.plot(x_coord, y_coord, 'x', c='blue', linewidth=0.5, label='aleatorios')
+plt.legend(loc='upper left', prop={'size': 14}, frameon=True)
+plt.show()
 ```
-![fig1]()
+![fig1](https://github.com/oolaya1815/Machine_Learning/blob/main/Appendix/images/fig1.JPG)
