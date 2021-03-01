@@ -8,6 +8,8 @@ Se ha realizado dos algoritmos uno usando bucles y otro mediante la biblioteca n
 
 ## 1. Usando bucles for y while
 
+Archivo monte\_bucle.py
+
 ```python
 import random as rd
 import matplotlib.pyplot as plt
