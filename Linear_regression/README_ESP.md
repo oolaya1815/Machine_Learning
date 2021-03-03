@@ -30,3 +30,19 @@ Y la función de coste:
 <TD bgcolor="#FFFFFF"> <img src="https://latex.codecogs.com/svg.latex?\large&space;J(\Theta&space;)=\frac{1}{2}\sum_{i=1}^{m}(h_{\Theta}(x^{(i)})-y^{(i)})^{2}" title="\large J(\Theta )=\frac{1}{2}\sum_{i=1}^{m}(h_{\Theta}(x^{(i)})-y^{(i)})^{2}" /> </TD>
 </TR>
 </TABLE>
+
+En Python se implementara:
+
+```python
+def coste(X, Y, Theta):
+    # alamacena en H todos los puntosde
+    # Theta[0] + X*Theta[1]
+    H = np.dot(X, Theta) # hipotesis
+    # almacena en Aux la diferencia
+    # de H e Y al cuadrado
+    Aux = (H - Y)**2
+    # se retorna el valor de la suma de todos los valores
+    # de Aux dividido entre dos veces el numero de elementos
+    # de X
+    return Aux.sum() / (2 * len(x))
+```
