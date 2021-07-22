@@ -18,7 +18,7 @@ def integra_mc(fun, a, b, num_puntos):
     area_box = (b-a)*maxy
     I_monte = in_area*area_box/num_puntos
 
-		plt.style.use('seaborn-whitegrid')
+    plt.style.use('seaborn-whitegrid')
     plt.figure(figsize=(10, 10))
     plt.title(" $f(x)=-2x^6-x^5+x^4-2x^3+2x+1$ ", fontsize=14)
     plt.xlabel('coordenada x', fontsize=14)
